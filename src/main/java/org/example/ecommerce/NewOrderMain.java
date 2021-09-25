@@ -8,7 +8,7 @@ import java.util.concurrent.ExecutionException;
 public class NewOrderMain {
     public static void main(String[] args) throws ExecutionException, InterruptedException, IOException {
         try (var orderDispatcher = new KafkaDispatcher<Order>()) {
-            try (var emailDispatcher = new KafkaDispatcher<String>()) {
+            try (var emailDispatcher = new KafkaDispatcher<Email>()) {
                 for (int i = 0; i < 10; i++) {
                     var userId = UUID.randomUUID().toString();
                     var orderId = UUID.randomUUID().toString();
